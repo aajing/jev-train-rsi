@@ -1,0 +1,111 @@
+{
+  "baseline": "B1",
+  "config_path": "configs/baseline.json",
+  "config_sha256": "58c45d7bb44bc45aa4a0f53ae6e01f84848168040e2794372466585299c6b8f6",
+  "dataloader": {
+    "first_epoch_indices_json_sha256": "923c43b3038c9830499acc1d8e016fd0cd13b79ed9d09a44c7d2a8d657362773",
+    "hash_serialization": "Canonical JSON compact list of zero-based indices; no trailing newline",
+    "second_epoch_indices_json_sha256": "e724af27f6194faac35749210946c8ee411b2df5d0cd22d04302b2c353339d7c"
+  },
+  "files": {
+    "data/baseline/provenance.jsonl": {
+      "bytes": 3899918,
+      "rows": 20000,
+      "sha256": "ab3966abd975f78d878e36bf4a984e41e70cf0f57e681f3051e074688a2f919d"
+    },
+    "data/baseline/train.jsonl": {
+      "all_answers_match_independent_oracle": true,
+      "answer_type_counts": {
+        "bool": 2858,
+        "int": 7813,
+        "str": 9329
+      },
+      "by_domain_regime": {
+        "algorithms/id": 2857,
+        "arithmetic/id": 2857,
+        "code_semantics/id": 2857,
+        "evidence_integration/id": 2857,
+        "formal_logic/id": 2858,
+        "relations/id": 2857,
+        "temporal/id": 2857
+      },
+      "by_source_split": {
+        "baseline_procedural": 18200,
+        "train": 1800
+      },
+      "bytes": 12724528,
+      "max_ascii_prompt_chars": 1597,
+      "max_ascii_prompt_utf8_bytes": 1597,
+      "rows": 20000,
+      "sha256": "e3dcaf05a4bc8ae0e2f67f9af62185be63b31ba762699e4083123eff5e575ffb",
+      "synthesis_partition_counts": {
+        "judge": 347,
+        "train": 19653
+      }
+    }
+  },
+  "generation": {
+    "accepted": 18200,
+    "attempts": 24125,
+    "attempts_by_domain": {
+      "algorithms": 3272,
+      "arithmetic": 3242,
+      "code_semantics": 3190,
+      "evidence_integration": 3291,
+      "formal_logic": 4605,
+      "relations": 3295,
+      "temporal": 3230
+    },
+    "new_rows": 18200,
+    "quota_counts": {
+      "algorithms": 2857,
+      "arithmetic": 2857,
+      "code_semantics": 2857,
+      "evidence_integration": 2857,
+      "formal_logic": 2858,
+      "relations": 2857,
+      "temporal": 2857
+    },
+    "rejected": 5925,
+    "rejections_by_domain_reason": {
+      "algorithms/reserved_partition": 654,
+      "arithmetic/development_or_reference_duplicate": 2,
+      "arithmetic/existing_corpus_duplicate": 22,
+      "arithmetic/reserved_partition": 638,
+      "code_semantics/reserved_partition": 600,
+      "evidence_integration/existing_corpus_duplicate": 26,
+      "evidence_integration/reserved_partition": 677,
+      "formal_logic/development_or_reference_duplicate": 84,
+      "formal_logic/existing_corpus_duplicate": 1007,
+      "formal_logic/reserved_partition": 896,
+      "relations/development_or_reference_duplicate": 2,
+      "relations/existing_corpus_duplicate": 48,
+      "relations/reserved_partition": 639,
+      "temporal/reserved_partition": 630
+    },
+    "rejections_by_reason": {
+      "development_or_reference_duplicate": 88,
+      "existing_corpus_duplicate": 1103,
+      "reserved_partition": 4734
+    },
+    "seed_rows": 1800
+  },
+  "production_cost": "Not measured. Rebuild in metered Work or inherit verified costs; this materialized corpus is not a free expansion of the seed pool.",
+  "public_inputs_sha256": {
+    "data/public/development.jsonl": "4fdc159d91d2f3386e572155b786396d03a028ca8b8303dc97649c5838fe6c1a",
+    "data/public/reference.jsonl": "72ae894def243e212e6dc7f40f44d0a7d4093bcc462b86f43183ebafd0c46688",
+    "data/public/train.jsonl": "46f9f95196625bba583448404052c9d95a02c663f213bf1082724d566c29f1df"
+  },
+  "schema_version": 1,
+  "source_commit": "3308a15ccd7eea1df7a37d6ddc39b023b801ba16",
+  "source_files_sha256": {
+    "LICENSE": "ef2f6f6db605a2f611bc2d037c59276f615cdea76ac6e7551a28f71db890c9d2",
+    "jev/__init__.py": "039d6c25d5ebea9724711756aff885f44d2226abbeea4abb99dfbc7b0b35ce7e",
+    "jev/api.py": "493f1fb9c3ffccbdc5f07d555791f9d86b3db7e1a53eef278230211cb6883254",
+    "jev/case_reasoning.py": "4aa15762bcdbad3c355c13e1ed9a1d512cefecfdf856238d1d33f44d6fa3761a",
+    "jev/data.py": "97c1764a5090f60476397baf889a864359e0d59b48d99ddf3b34335d3e1b138e",
+    "jev/metrics.py": "cb460c78b877a24708a0a8f8ca6b51f9602491f6ea24cd14e9a828c03d92f78b"
+  },
+  "target": "format_answer(answer) plus exactly one original EOS token; no rationale for B1",
+  "training_has_run": false
+}

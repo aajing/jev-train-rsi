@@ -1,0 +1,350 @@
+{
+  "all_private_judge_rows_in_reserved_partition": true,
+  "files": {
+    "data/private/judge.jsonl": {
+      "all_answers_match_independent_oracle": true,
+      "answer_type_counts": {
+        "bool": 400,
+        "int": 1000,
+        "str": 1400
+      },
+      "by_domain_regime": {
+        "algorithms/id": 200,
+        "algorithms/ood": 200,
+        "arithmetic/id": 200,
+        "arithmetic/ood": 200,
+        "code_semantics/id": 200,
+        "code_semantics/ood": 200,
+        "evidence_integration/id": 200,
+        "evidence_integration/ood": 200,
+        "formal_logic/id": 200,
+        "formal_logic/ood": 200,
+        "relations/id": 200,
+        "relations/ood": 200,
+        "temporal/id": 200,
+        "temporal/ood": 200
+      },
+      "by_source_split": {
+        "derived_judge": 2800
+      },
+      "bytes": 1830116,
+      "max_ascii_prompt_chars": 1652,
+      "max_ascii_prompt_utf8_bytes": 1652,
+      "rows": 2800,
+      "sha256": "ac2014403e4fb45a1899d789c66b3dc4ed7ce755714251183c68d7c3b67af4c2",
+      "synthesis_partition_counts": {
+        "judge": 2800
+      }
+    },
+    "data/public/development.jsonl": {
+      "all_answers_match_independent_oracle": true,
+      "answer_type_counts": {
+        "bool": 39,
+        "int": 71,
+        "str": 99
+      },
+      "by_domain_regime": {
+        "algorithms/id": 29,
+        "arithmetic/id": 24,
+        "code_semantics/id": 27,
+        "evidence_integration/id": 28,
+        "formal_logic/id": 39,
+        "relations/id": 33,
+        "temporal/id": 29
+      },
+      "by_source_split": {
+        "calibration": 110,
+        "validation": 99
+      },
+      "bytes": 132645,
+      "max_ascii_prompt_chars": 1594,
+      "max_ascii_prompt_utf8_bytes": 1594,
+      "rows": 209,
+      "sha256": "4fdc159d91d2f3386e572155b786396d03a028ca8b8303dc97649c5838fe6c1a",
+      "synthesis_partition_counts": {
+        "judge": 40,
+        "train": 169
+      }
+    },
+    "data/public/reference.jsonl": {
+      "all_answers_match_independent_oracle": true,
+      "answer_type_counts": {
+        "bool": 65,
+        "int": 169,
+        "str": 243
+      },
+      "by_domain_regime": {
+        "algorithms/id": 53,
+        "algorithms/ood": 36,
+        "arithmetic/id": 20,
+        "arithmetic/ood": 36,
+        "code_semantics/id": 28,
+        "code_semantics/ood": 35,
+        "evidence_integration/id": 24,
+        "evidence_integration/ood": 36,
+        "formal_logic/id": 29,
+        "formal_logic/ood": 36,
+        "relations/id": 38,
+        "relations/ood": 35,
+        "temporal/id": 35,
+        "temporal/ood": 36
+      },
+      "by_source_split": {
+        "ood": 250,
+        "test": 227
+      },
+      "bytes": 307170,
+      "max_ascii_prompt_chars": 1652,
+      "max_ascii_prompt_utf8_bytes": 1652,
+      "rows": 477,
+      "sha256": "72ae894def243e212e6dc7f40f44d0a7d4093bcc462b86f43183ebafd0c46688",
+      "synthesis_partition_counts": {
+        "judge": 86,
+        "train": 391
+      }
+    },
+    "data/public/train.jsonl": {
+      "all_answers_match_independent_oracle": true,
+      "answer_type_counts": {
+        "bool": 240,
+        "int": 731,
+        "str": 829
+      },
+      "by_domain_regime": {
+        "algorithms/id": 239,
+        "arithmetic/id": 277,
+        "code_semantics/id": 267,
+        "evidence_integration/id": 269,
+        "formal_logic/id": 240,
+        "relations/id": 251,
+        "temporal/id": 257
+      },
+      "by_source_split": {
+        "train": 1800
+      },
+      "bytes": 1113689,
+      "max_ascii_prompt_chars": 1596,
+      "max_ascii_prompt_utf8_bytes": 1596,
+      "rows": 1800,
+      "sha256": "46f9f95196625bba583448404052c9d95a02c663f213bf1082724d566c29f1df",
+      "synthesis_partition_counts": {
+        "judge": 347,
+        "train": 1453
+      }
+    }
+  },
+  "gpu_used": false,
+  "limitations": [
+    "No model training, performance, tokenizer-length or runtime validation",
+    "No semantic/template duplicate claim",
+    "Public source reference data are not hidden",
+    "Private seed security depends on preserving the declared filesystem and task access boundary",
+    "This materializes evaluation inputs and implements CPU response parsing/scoring; model generation and candidate-state admission remain separate implementation work"
+  ],
+  "model_loaded": false,
+  "native_source_answers_rebuilt_without_parsing_options": true,
+  "new_synthesis_judge_exact_collision_prevention": "Disjoint public deterministic hash partitions; existing fixed training rows separately excluded from Judge",
+  "normalized_answers_match_independent_state_oracles": true,
+  "official_split_hashes_reproduced": true,
+  "oracle_provenance": "Labels come from deterministic replay of the unchanged pinned builders; independent CPU state evaluators recompute every normalized label without reading options or source labels. Arbitrary candidate admission validation is not implemented here",
+  "private": {
+    "active_cell_scenes_built": 76924,
+    "all_judge_rows_in_reserved_partition": true,
+    "all_stratification_quotas_satisfied": true,
+    "built_scene_partition_counts": {
+      "judge": 15378,
+      "train": 61546
+    },
+    "exact_normalized_duplicates_excluded": {
+      "overlap_with_public": 37,
+      "within_judge": 28
+    },
+    "generated_scene_count_scanned": 2294421,
+    "generation_scene_cap": 5000000,
+    "indexed_replay_checked_against_pinned_generator": true,
+    "normalized_cross_overlap_with_all_public_splits": 0,
+    "private_seed_published": false,
+    "selection": "First eligible unique scenes in original generator index order for each frozen domain/regime/stratum quota; require buckets 8..9 and exclude every public split. Skip source generation for completed domain/regime cells",
+    "stratification_counts": {
+      "algorithms/id": {
+        "not_present": 100,
+        "present": 100
+      },
+      "algorithms/ood": {
+        "not_present": 100,
+        "present": 100
+      },
+      "arithmetic/id": {
+        "negative": 80,
+        "positive": 80,
+        "zero": 40
+      },
+      "arithmetic/ood": {
+        "negative": 80,
+        "positive": 80,
+        "zero": 40
+      },
+      "code_semantics/id": {
+        "negative": 80,
+        "positive": 80,
+        "zero": 40
+      },
+      "code_semantics/ood": {
+        "negative": 80,
+        "positive": 80,
+        "zero": 40
+      },
+      "evidence_integration/id": {
+        "active": 30,
+        "closed": 30,
+        "conflict": 40,
+        "not_stated": 40,
+        "paused": 30,
+        "queued": 30
+      },
+      "evidence_integration/ood": {
+        "active": 30,
+        "closed": 30,
+        "conflict": 40,
+        "not_stated": 40,
+        "paused": 30,
+        "queued": 30
+      },
+      "formal_logic/id": {
+        "false": 100,
+        "true": 100
+      },
+      "formal_logic/ood": {
+        "false": 100,
+        "true": 100
+      },
+      "relations/id": {
+        "direct": 67,
+        "indirect": 67,
+        "unreachable": 66
+      },
+      "relations/ood": {
+        "direct": 67,
+        "indirect": 67,
+        "unreachable": 66
+      },
+      "temporal/id": {
+        "earliest": 100,
+        "latest": 100
+      },
+      "temporal/ood": {
+        "earliest": 100,
+        "latest": 100
+      }
+    },
+    "stratification_quotas_per_regime": {
+      "algorithms": {
+        "not_present": 100,
+        "present": 100
+      },
+      "arithmetic": {
+        "negative": 80,
+        "positive": 80,
+        "zero": 40
+      },
+      "code_semantics": {
+        "negative": 80,
+        "positive": 80,
+        "zero": 40
+      },
+      "evidence_integration": {
+        "active": 30,
+        "closed": 30,
+        "conflict": 40,
+        "not_stated": 40,
+        "paused": 30,
+        "queued": 30
+      },
+      "formal_logic": {
+        "false": 100,
+        "true": 100
+      },
+      "relations": {
+        "direct": 67,
+        "indirect": 67,
+        "unreachable": 66
+      },
+      "temporal": {
+        "earliest": 100,
+        "latest": 100
+      }
+    },
+    "unique_normalized_judge_inputs": 2800
+  },
+  "public": {
+    "deduplication_priority": [
+      "test",
+      "ood",
+      "validation",
+      "calibration",
+      "train"
+    ],
+    "exact_normalized_duplicates_removed": {
+      "train_duplicate_of_calibration": 2,
+      "train_duplicate_of_test": 4,
+      "train_duplicate_of_train": 7,
+      "train_duplicate_of_validation": 1
+    },
+    "normalized_retained_free_response_counts": {
+      "calibration": 110,
+      "ood": 250,
+      "test": 227,
+      "train": 1800,
+      "validation": 99
+    },
+    "original_choice_counts": {
+      "calibration": 110,
+      "ood": 250,
+      "test": 227,
+      "train": 1814,
+      "validation": 99
+    },
+    "original_groups_are_split_disjoint": true,
+    "upstream_all_primitives_split_sha256": {
+      "calibration": "a0d3cddf132630d6b74601673db7bf9f778fcc04d722cfffd5f44cea296b59be",
+      "ood": "a23835a8569c2c7011cbd5855393c54f00c8e054c597399f3f036d1ef4d1e399",
+      "test": "bc36ff12ff82d14e0d99ce98db2494a4559abcf118e5fa0b09e67dcf8b90dd61",
+      "train": "147f38dbfd622e58d7669bf4e956ba15c0377fd4c80a6a4e45a40723698e258b",
+      "validation": "146aa3be0e7a0d59693adb248ab4687cc0e4b21e5bc07805fbfcdedb5258ceeb"
+    },
+    "upstream_all_primitives_summary": {
+      "families": {
+        "evidence": 2500,
+        "routing": 2500,
+        "rubric": 2500
+      },
+      "groups": 2500,
+      "kinds": {
+        "choice": 2500,
+        "noul": 2500,
+        "score": 2500
+      },
+      "records": 7500,
+      "sources": {
+        "reasoning-control-v1": 7500
+      },
+      "splits": {
+        "calibration": 330,
+        "ood": 750,
+        "test": 681,
+        "train": 5442,
+        "validation": 297
+      },
+      "unique_inputs": 7500
+    }
+  },
+  "schema_version": 3,
+  "source_hashes_verified": true,
+  "status": "passed",
+  "strict_json_scalar_schema_verified": true,
+  "synthesis_partition_rule": "int(canonical_key(normalized_row)[:8], 16) % 10: new training 0..7; Judge 8..9",
+  "task_files_sha256": {
+    "scripts/answer_protocol.py": "49416882d5d071d1ed894228ba49598511bc9c17d4653a18912e520dc7e653bd",
+    "scripts/materialize_data.py": "bce77f06091e0ad11bd5e6727b178e64295413561af87a14bf83fff01769e441"
+  }
+}

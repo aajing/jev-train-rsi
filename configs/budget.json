@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "candidate_production_charged_seconds": 7200,
+  "candidate_distinct_training_states": 20000,
+  "candidate_proposed_state_attempts": 100000,
+  "candidate_teacher_input_output_tokens": 2000000,
+  "candidate_student_nonpadding_token_exposures": 20000000,
+  "judge_seconds": 1800,
+  "trajectory_default_wall_seconds": 86400,
+  "trajectory_optional_extension_wall_seconds": 172800,
+  "trajectory_completed_judge_calls": 16,
+  "generation_receipt_policy": "Charge every current receipt, including rejected or discarded work, plus the unique ancestor closure of reused data. Receipts are immutable task-runner records; candidate declarations are not authoritative.",
+  "candidate_time_formula": "actual_current_work_elapsed_seconds + sum(exclusive_generation_seconds for unique inherited receipts from earlier candidates)",
+  "trajectory_time_formula": "actual trajectory wall-clock elapsed time; never add inherited time again",
+  "receipt_batch_policy": "Reusing any output of a generation batch inherits the full batch receipt and its ancestors, including rejected attempts. A receipt is charged once per candidate. Receipt times exclude time already attributed to a parent or another receipt.",
+  "enforcement_status": "CPU arithmetic is implemented; trusted runtime collection, lineage validation and online stopping remain Harbor runner integration."
+}

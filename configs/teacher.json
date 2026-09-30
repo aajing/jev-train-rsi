@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "role": "Optional local frozen teacher; never used at Judge inference",
+  "model": {"repository": "Qwen/Qwen3.8-27B", "revision": "1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0", "dtype": "BF16", "weights_frozen": true, "modality": "text_only"},
+  "reference_serving": {"tensor_parallel_size": 1, "context_length_tokens": 8192, "initial_concurrency": 1, "max_output_tokens_per_request": 1024, "placement": "Same single H100 as student, loaded sequentially; no simultaneous residency required", "status": "Reference starting settings, not a measured engine configuration. Verify model support, memory and speed before freezing the runtime; no unverified engine version is promised."},
+  "editable_within_contract": ["teacher prompts", "which admitted ID training states receive assistance", "sampling parameters", "batching and concurrency", "per-request output cap and context length within hardware/time/token constraints", "use no teacher at all"],
+  "fixed": ["teacher identity and revision", "no teacher-weight training", "text-only local execution", "one H100", "2 million total teacher tokens including all retries, discarded text and reasoning", "candidate 7200-second all-production limit", "oracle remains the source of training labels"],
+  "budget": {"max_input_output_reasoning_tokens_per_candidate": 2000000, "measurement": "Use the pinned teacher tokenizer; include rendered chat/special tokens actually submitted to the model and every generated token, including thinking, retries and rejected generations. Count reasoning once as part of generated output, not twice.", "cache_accounting": "Repeated teacher input and reused outputs retain their attributable original cost; cached compute does not waive token accounting. Reused artifacts follow configs/baseline.json:reuse_cost_ledger."},
+  "suggested_use": "Use deterministic builders for exact structured states and labels; spend optional teacher calls on selected difficult examples or explanations. Verify semantic answers with the oracle and count discarded calls. At 1000 total tokens per call, 2 million tokens permits only about 2000 such calls, not teacher coverage of 20000 training rows.",
+  "validation": {"gpu_model_loaded": false, "memory_measured": false, "throughput_measured": false, "engine_compatibility_verified": false}
+}

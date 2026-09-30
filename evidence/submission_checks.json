@@ -1,0 +1,25 @@
+{
+  "checks": {
+    "baseline_byte_rebuild": {
+      "passed": true
+    },
+    "frozen_judge_protocol_smoke": {
+      "dataset_sha256": "ac2014403e4fb45a1899d789c66b3dc4ed7ce755714251183c68d7c3b67af4c2",
+      "missing_response_rejected": true,
+      "note": "Gold-derived CPU protocol fixtures only; no model was run and no model score is reported.",
+      "one_invalid_fixture_score": 99.96428571428571,
+      "oracle_formatted_fixture_score": 100.0,
+      "passed": true,
+      "rows": 2800
+    },
+    "unit_tests": {
+      "passed": true,
+      "tests": 35
+    }
+  },
+  "model_score": null,
+  "schema_version": 1,
+  "submission_metadata": "Contributor name, email and contributor-selected AutoTrust GitHub and Hugging Face project links have been supplied.",
+  "teacher_called": false,
+  "training_has_run": false
+}

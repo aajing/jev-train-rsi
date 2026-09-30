@@ -1,0 +1,79 @@
+{
+  "all_answers_match_independent_oracle": true,
+  "all_fixed_seeds_included": true,
+  "all_new_rows_in_training_partition": true,
+  "all_rows_id_only": true,
+  "canonical_target_examples": {
+    "algorithms": "Final answer: -24",
+    "arithmetic": "Final answer: 363",
+    "code_semantics": "Final answer: -23",
+    "evidence_integration": "Final answer: \"queued\"",
+    "formal_logic": "Final answer: true",
+    "relations": "Final answer: \"unreachable\"",
+    "temporal": "Final answer: \"event_SCENE_3\""
+  },
+  "config_sha256": "58c45d7bb44bc45aa4a0f53ae6e01f84848168040e2794372466585299c6b8f6",
+  "corpus_sha256": "e3dcaf05a4bc8ae0e2f67f9af62185be63b31ba762699e4083123eff5e575ffb",
+  "development_reference_overlap": 0,
+  "generation": {
+    "accepted": 18200,
+    "attempts": 24125,
+    "attempts_by_domain": {
+      "algorithms": 3272,
+      "arithmetic": 3242,
+      "code_semantics": 3190,
+      "evidence_integration": 3291,
+      "formal_logic": 4605,
+      "relations": 3295,
+      "temporal": 3230
+    },
+    "new_rows": 18200,
+    "quota_counts": {
+      "algorithms": 2857,
+      "arithmetic": 2857,
+      "code_semantics": 2857,
+      "evidence_integration": 2857,
+      "formal_logic": 2858,
+      "relations": 2857,
+      "temporal": 2857
+    },
+    "rejected": 5925,
+    "rejections_by_domain_reason": {
+      "algorithms/reserved_partition": 654,
+      "arithmetic/development_or_reference_duplicate": 2,
+      "arithmetic/existing_corpus_duplicate": 22,
+      "arithmetic/reserved_partition": 638,
+      "code_semantics/reserved_partition": 600,
+      "evidence_integration/existing_corpus_duplicate": 26,
+      "evidence_integration/reserved_partition": 677,
+      "formal_logic/development_or_reference_duplicate": 84,
+      "formal_logic/existing_corpus_duplicate": 1007,
+      "formal_logic/reserved_partition": 896,
+      "relations/development_or_reference_duplicate": 2,
+      "relations/existing_corpus_duplicate": 48,
+      "relations/reserved_partition": 639,
+      "temporal/reserved_partition": 630
+    },
+    "rejections_by_reason": {
+      "development_or_reference_duplicate": 88,
+      "existing_corpus_duplicate": 1103,
+      "reserved_partition": 4734
+    },
+    "seed_rows": 1800
+  },
+  "gpu_used": false,
+  "limits": [
+    "Reference corpus generation only; no student training or B1 accuracy measured",
+    "No tokenizer-length measurement or H100 elapsed-time measurement",
+    "Semantic train recipe and reuse-cost contract require the task-owned runtime adapter and meter",
+    "Fixed seeds/order do not guarantee bitwise reproducibility across GPU software stacks"
+  ],
+  "model_loaded": false,
+  "private_data_read": false,
+  "provenance_sha256": "ab3966abd975f78d878e36bf4a984e41e70cf0f57e681f3051e074688a2f919d",
+  "schema_version": 1,
+  "source_builders_used_unmodified": true,
+  "status": "passed",
+  "teacher_used": false,
+  "unique_normalized_inputs": 20000
+}

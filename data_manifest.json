@@ -1,0 +1,348 @@
+{
+  "answer_protocol": {
+    "comparison": "Exact type and value; bool is distinct from int; malformed completed responses are incorrect",
+    "format": "Optional preceding reasoning; exactly one Final answer: prefix, on the last nonempty line, followed by one complete JSON boolean, integer, or string",
+    "full_score": "100 requires all 2800 answers correct, subject to candidate budget and modification-scope eligibility",
+    "parser": "scripts/answer_protocol.py:parse_response"
+  },
+  "canonical_key_fields": [
+    "kind",
+    "state",
+    "question"
+  ],
+  "dataset": "reasoning-control-v1-free-response-derived",
+  "dedup_scope_limit": "Exact normalized input equality only. No semantic equivalence or template-level leakage claim.",
+  "development_policy": "Original validation and calibration decision scenes pooled and converted to free response; no separate temperature fitting",
+  "duplicate_key": "SHA256 of canonical JSON of normalized state, question and constant free_response kind; no answer, options, labels or record IDs",
+  "files": {
+    "data/private/judge.jsonl": {
+      "all_answers_match_independent_oracle": true,
+      "answer_type_counts": {
+        "bool": 400,
+        "int": 1000,
+        "str": 1400
+      },
+      "by_domain_regime": {
+        "algorithms/id": 200,
+        "algorithms/ood": 200,
+        "arithmetic/id": 200,
+        "arithmetic/ood": 200,
+        "code_semantics/id": 200,
+        "code_semantics/ood": 200,
+        "evidence_integration/id": 200,
+        "evidence_integration/ood": 200,
+        "formal_logic/id": 200,
+        "formal_logic/ood": 200,
+        "relations/id": 200,
+        "relations/ood": 200,
+        "temporal/id": 200,
+        "temporal/ood": 200
+      },
+      "by_source_split": {
+        "derived_judge": 2800
+      },
+      "bytes": 1830116,
+      "max_ascii_prompt_chars": 1652,
+      "max_ascii_prompt_utf8_bytes": 1652,
+      "rows": 2800,
+      "sha256": "ac2014403e4fb45a1899d789c66b3dc4ed7ce755714251183c68d7c3b67af4c2",
+      "synthesis_partition_counts": {
+        "judge": 2800
+      }
+    },
+    "data/public/development.jsonl": {
+      "all_answers_match_independent_oracle": true,
+      "answer_type_counts": {
+        "bool": 39,
+        "int": 71,
+        "str": 99
+      },
+      "by_domain_regime": {
+        "algorithms/id": 29,
+        "arithmetic/id": 24,
+        "code_semantics/id": 27,
+        "evidence_integration/id": 28,
+        "formal_logic/id": 39,
+        "relations/id": 33,
+        "temporal/id": 29
+      },
+      "by_source_split": {
+        "calibration": 110,
+        "validation": 99
+      },
+      "bytes": 132645,
+      "max_ascii_prompt_chars": 1594,
+      "max_ascii_prompt_utf8_bytes": 1594,
+      "rows": 209,
+      "sha256": "4fdc159d91d2f3386e572155b786396d03a028ca8b8303dc97649c5838fe6c1a",
+      "synthesis_partition_counts": {
+        "judge": 40,
+        "train": 169
+      }
+    },
+    "data/public/reference.jsonl": {
+      "all_answers_match_independent_oracle": true,
+      "answer_type_counts": {
+        "bool": 65,
+        "int": 169,
+        "str": 243
+      },
+      "by_domain_regime": {
+        "algorithms/id": 53,
+        "algorithms/ood": 36,
+        "arithmetic/id": 20,
+        "arithmetic/ood": 36,
+        "code_semantics/id": 28,
+        "code_semantics/ood": 35,
+        "evidence_integration/id": 24,
+        "evidence_integration/ood": 36,
+        "formal_logic/id": 29,
+        "formal_logic/ood": 36,
+        "relations/id": 38,
+        "relations/ood": 35,
+        "temporal/id": 35,
+        "temporal/ood": 36
+      },
+      "by_source_split": {
+        "ood": 250,
+        "test": 227
+      },
+      "bytes": 307170,
+      "max_ascii_prompt_chars": 1652,
+      "max_ascii_prompt_utf8_bytes": 1652,
+      "rows": 477,
+      "sha256": "72ae894def243e212e6dc7f40f44d0a7d4093bcc462b86f43183ebafd0c46688",
+      "synthesis_partition_counts": {
+        "judge": 86,
+        "train": 391
+      }
+    },
+    "data/public/train.jsonl": {
+      "all_answers_match_independent_oracle": true,
+      "answer_type_counts": {
+        "bool": 240,
+        "int": 731,
+        "str": 829
+      },
+      "by_domain_regime": {
+        "algorithms/id": 239,
+        "arithmetic/id": 277,
+        "code_semantics/id": 267,
+        "evidence_integration/id": 269,
+        "formal_logic/id": 240,
+        "relations/id": 251,
+        "temporal/id": 257
+      },
+      "by_source_split": {
+        "train": 1800
+      },
+      "bytes": 1113689,
+      "max_ascii_prompt_chars": 1596,
+      "max_ascii_prompt_utf8_bytes": 1596,
+      "rows": 1800,
+      "sha256": "46f9f95196625bba583448404052c9d95a02c663f213bf1082724d566c29f1df",
+      "synthesis_partition_counts": {
+        "judge": 347,
+        "train": 1453
+      }
+    }
+  },
+  "judge_design": {
+    "completed_response_cpu_scorer_implemented": true,
+    "domains": [
+      "formal_logic",
+      "relations",
+      "arithmetic",
+      "temporal",
+      "code_semantics",
+      "algorithms",
+      "evidence_integration"
+    ],
+    "evaluator_implemented": false,
+    "future_decode": {
+      "do_sample": false,
+      "max_new_tokens": 512,
+      "num_beams": 1
+    },
+    "generations_per_case_for_future_evaluator": 1,
+    "regimes": [
+      "id",
+      "ood"
+    ],
+    "response_parser_implemented": true,
+    "score": "100 * (0.5 * mean(ID domain accuracies) + 0.5 * mean(OOD domain accuracies))",
+    "stratification_counts": {
+      "algorithms/id": {
+        "not_present": 100,
+        "present": 100
+      },
+      "algorithms/ood": {
+        "not_present": 100,
+        "present": 100
+      },
+      "arithmetic/id": {
+        "negative": 80,
+        "positive": 80,
+        "zero": 40
+      },
+      "arithmetic/ood": {
+        "negative": 80,
+        "positive": 80,
+        "zero": 40
+      },
+      "code_semantics/id": {
+        "negative": 80,
+        "positive": 80,
+        "zero": 40
+      },
+      "code_semantics/ood": {
+        "negative": 80,
+        "positive": 80,
+        "zero": 40
+      },
+      "evidence_integration/id": {
+        "active": 30,
+        "closed": 30,
+        "conflict": 40,
+        "not_stated": 40,
+        "paused": 30,
+        "queued": 30
+      },
+      "evidence_integration/ood": {
+        "active": 30,
+        "closed": 30,
+        "conflict": 40,
+        "not_stated": 40,
+        "paused": 30,
+        "queued": 30
+      },
+      "formal_logic/id": {
+        "false": 100,
+        "true": 100
+      },
+      "formal_logic/ood": {
+        "false": 100,
+        "true": 100
+      },
+      "relations/id": {
+        "direct": 67,
+        "indirect": 67,
+        "unreachable": 66
+      },
+      "relations/ood": {
+        "direct": 67,
+        "indirect": 67,
+        "unreachable": 66
+      },
+      "temporal/id": {
+        "earliest": 100,
+        "latest": 100
+      },
+      "temporal/ood": {
+        "earliest": 100,
+        "latest": 100
+      }
+    },
+    "stratification_quotas_per_regime": {
+      "algorithms": {
+        "not_present": 100,
+        "present": 100
+      },
+      "arithmetic": {
+        "negative": 80,
+        "positive": 80,
+        "zero": 40
+      },
+      "code_semantics": {
+        "negative": 80,
+        "positive": 80,
+        "zero": 40
+      },
+      "evidence_integration": {
+        "active": 30,
+        "closed": 30,
+        "conflict": 40,
+        "not_stated": 40,
+        "paused": 30,
+        "queued": 30
+      },
+      "formal_logic": {
+        "false": 100,
+        "true": 100
+      },
+      "relations": {
+        "direct": 67,
+        "indirect": 67,
+        "unreachable": 66
+      },
+      "temporal": {
+        "earliest": 100,
+        "latest": 100
+      }
+    },
+    "unique_rows_per_cell": 200
+  },
+  "model_input_fields": [
+    "state",
+    "question"
+  ],
+  "non_input_fields": [
+    "kind",
+    "id",
+    "group_id",
+    "answer",
+    "domain",
+    "regime",
+    "source_split"
+  ],
+  "normalization": [
+    "Remove state.record_id",
+    "Rename generated scene entity tags to SCENE without changing their indexed roles"
+  ],
+  "private_policy": "data/private/ is Judge only. Never mount, package, publish or copy it into Work or a public proposal.",
+  "private_seed_delivery": "Local saved file data/private/generator_seed.json; contents intentionally omitted",
+  "prompt_instruction": "Solve the problem using only the supplied state and rules. You may explain your reasoning.\nEnd with exactly one line in this format: Final answer: <JSON scalar>\nThe scalar must be a JSON boolean, integer, or quoted string, as appropriate for the question.\nDo not use a float, null, array, or object. Do not write the final-answer prefix anywhere else.",
+  "prompt_metric_limit": "ASCII character count is not a measured tokenizer token count",
+  "prompt_renderer": "scripts/answer_protocol.py:render_ascii_prompt",
+  "public_source_generator": {
+    "groups": 2500,
+    "seed": 76109
+  },
+  "schema_version": 3,
+  "source_commit": "3308a15ccd7eea1df7a37d6ddc39b023b801ba16",
+  "source_files_sha256": {
+    "LICENSE": "ef2f6f6db605a2f611bc2d037c59276f615cdea76ac6e7551a28f71db890c9d2",
+    "jev/__init__.py": "039d6c25d5ebea9724711756aff885f44d2226abbeea4abb99dfbc7b0b35ce7e",
+    "jev/api.py": "493f1fb9c3ffccbdc5f07d555791f9d86b3db7e1a53eef278230211cb6883254",
+    "jev/case_reasoning.py": "4aa15762bcdbad3c355c13e1ed9a1d512cefecfdf856238d1d33f44d6fa3761a",
+    "jev/data.py": "97c1764a5090f60476397baf889a864359e0d59b48d99ddf3b34335d3e1b138e",
+    "jev/metrics.py": "cb460c78b877a24708a0a8f8ca6b51f9602491f6ea24cd14e9a828c03d92f78b"
+  },
+  "source_repository": "https://github.com/Zefan-Cai/Open-Jev",
+  "supervision_field": "answer",
+  "synthesis_partition": {
+    "additional_training_exclusions": "Exact normalized matches to development or public reference rows are forbidden even in buckets 0..7",
+    "fixed_seed_exception": "All 1800 already materialized fixed training rows remain eligible regardless of bucket; Judge excludes every public row",
+    "helper": "scripts/materialize_data.py:synthesis_partition",
+    "judge_buckets": [
+      8,
+      9
+    ],
+    "new_training_buckets": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "rule": "bucket = int(canonical_key(normalized_row)[:8], 16) % 10",
+    "scope": "Prevents exact normalized new-synthesis/Judge collisions; does not guarantee semantic or template separation"
+  },
+  "task_files_sha256": {
+    "scripts/answer_protocol.py": "49416882d5d071d1ed894228ba49598511bc9c17d4653a18912e520dc7e653bd",
+    "scripts/materialize_data.py": "bce77f06091e0ad11bd5e6727b178e64295413561af87a14bf83fff01769e441"
+  }
+}

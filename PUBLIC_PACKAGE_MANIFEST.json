@@ -1,0 +1,147 @@
+{
+  "files": {
+    ".gitignore": {
+      "bytes": 33,
+      "sha256": "2722349d4e158199ff2f2ebfb7dc7c3050b142877d6be681c433e321a16ed1a1"
+    },
+    "DATA_SPEC.md": {
+      "bytes": 23907,
+      "sha256": "6de245b0dbbff5430ffcf82e74ff9f7ca6e5f3c6e0ca2894b3fa4c763c5d8819"
+    },
+    "README.md": {
+      "bytes": 2942,
+      "sha256": "c92cd2456e7f8e71f037c3bc5284d579290f10ccde0e7f9811ce250eb11c0e5a"
+    },
+    "RUNBOOK.md": {
+      "bytes": 4273,
+      "sha256": "fbeaad322c6e2e18943636ac3d0e6c66b58998c91e061858d64ddb4de6ae6d0a"
+    },
+    "SUBMISSION.md": {
+      "bytes": 3480,
+      "sha256": "b620690896d3728c30031c4f1292e75a1852fb1f7a4e03758c9595ba2a9eda0c"
+    },
+    "configs/baseline.json": {
+      "bytes": 9000,
+      "sha256": "58c45d7bb44bc45aa4a0f53ae6e01f84848168040e2794372466585299c6b8f6"
+    },
+    "configs/budget.json": {
+      "bytes": 1379,
+      "sha256": "7222bec5e71b9fa104385afd2d9952a6bdc00af1d079c42f542762ac681f0a13"
+    },
+    "configs/teacher.json": {
+      "bytes": 2330,
+      "sha256": "ac655dd7951d5e46effe00b958deee5740db28f72d1b837d7fe0eb8a49aafa1c"
+    },
+    "data/baseline/manifest.json": {
+      "bytes": 4310,
+      "sha256": "811b959a512dc27871932e26110ae40637314b25683c80432acbeb31abaf6a4e"
+    },
+    "data/baseline/provenance.jsonl": {
+      "bytes": 3899918,
+      "sha256": "ab3966abd975f78d878e36bf4a984e41e70cf0f57e681f3051e074688a2f919d"
+    },
+    "data/baseline/train.jsonl": {
+      "bytes": 12724528,
+      "sha256": "e3dcaf05a4bc8ae0e2f67f9af62185be63b31ba762699e4083123eff5e575ffb"
+    },
+    "data/public/development.jsonl": {
+      "bytes": 132645,
+      "sha256": "4fdc159d91d2f3386e572155b786396d03a028ca8b8303dc97649c5838fe6c1a"
+    },
+    "data/public/reference.jsonl": {
+      "bytes": 307170,
+      "sha256": "72ae894def243e212e6dc7f40f44d0a7d4093bcc462b86f43183ebafd0c46688"
+    },
+    "data/public/train.jsonl": {
+      "bytes": 1113689,
+      "sha256": "46f9f95196625bba583448404052c9d95a02c663f213bf1082724d566c29f1df"
+    },
+    "data_manifest.json": {
+      "bytes": 10609,
+      "sha256": "77cc6f37169d83bf228cd955cf393719974b93a68a97bee91373620080edf3b2"
+    },
+    "evidence/baseline_audit.json": {
+      "bytes": 2917,
+      "sha256": "df793bb9295413ddb54ef823ab120b93488d88feb77f69ffac6ab897cda4fa50"
+    },
+    "evidence/data_audit.json": {
+      "bytes": 10226,
+      "sha256": "4820c41390ced8c45395c358ad27de141fd19538482314b84fe92523c0135727"
+    },
+    "evidence/submission_checks.json": {
+      "bytes": 820,
+      "sha256": "14b43d013f4b6b24a85448ca03f7e9294b74d05221da22ab2a47d0088082765b"
+    },
+    "proposal.md": {
+      "bytes": 25043,
+      "sha256": "e0d409367363ffe6afc32266342378afe362aa9aae75afb8f13c9b6c3f52d51d"
+    },
+    "scripts/answer_protocol.py": {
+      "bytes": 10991,
+      "sha256": "49416882d5d071d1ed894228ba49598511bc9c17d4653a18912e520dc7e653bd"
+    },
+    "scripts/budget_accounting.py": {
+      "bytes": 4437,
+      "sha256": "48e41437f34035e995efe11267b9556d73d2cb5a75cb1a5ab15f1f44d9efc8c0"
+    },
+    "scripts/build_baseline.py": {
+      "bytes": 10214,
+      "sha256": "3a2a80c93203428e040c578b89dfdf99550e8427546fd440d1807f733384e117"
+    },
+    "scripts/judge_gate.py": {
+      "bytes": 11036,
+      "sha256": "a496b0dac7ada97f991a8805ea5c2b1b21ca5afb332742f3e7014668c957281f"
+    },
+    "scripts/materialize_data.py": {
+      "bytes": 25161,
+      "sha256": "bce77f06091e0ad11bd5e6727b178e64295413561af87a14bf83fff01769e441"
+    },
+    "scripts/package_submission.py": {
+      "bytes": 3108,
+      "sha256": "17a6a22292ad5f646f193830c19658beddda5abba18b9e6c11f0b5ab662c872f"
+    },
+    "scripts/test_answer_protocol.py": {
+      "bytes": 5977,
+      "sha256": "1c31e88dd64bdf6f9aedd44cf2d8abf1366849e4d7ed6222f0c537d25fa0b79b"
+    },
+    "scripts/test_baseline.py": {
+      "bytes": 4926,
+      "sha256": "68a9368dd69f5fe6e6fc3344ceaad06aa14c809aab397514ef55c24d6b9fefb6"
+    },
+    "scripts/test_budget_accounting.py": {
+      "bytes": 3640,
+      "sha256": "6db3335374130cd2de13818486c3e9ed95351f9c7c061994899c87e56c326fd0"
+    },
+    "scripts/test_judge_gate.py": {
+      "bytes": 8477,
+      "sha256": "1dd3e532202c30f41ef48ca5b33d5eabb8b278e6293d87d2d55dfc7a06c165e7"
+    },
+    "sources/open-jev/LICENSE": {
+      "bytes": 1078,
+      "sha256": "ef2f6f6db605a2f611bc2d037c59276f615cdea76ac6e7551a28f71db890c9d2"
+    },
+    "sources/open-jev/jev/__init__.py": {
+      "bytes": 64,
+      "sha256": "039d6c25d5ebea9724711756aff885f44d2226abbeea4abb99dfbc7b0b35ce7e"
+    },
+    "sources/open-jev/jev/api.py": {
+      "bytes": 6698,
+      "sha256": "493f1fb9c3ffccbdc5f07d555791f9d86b3db7e1a53eef278230211cb6883254"
+    },
+    "sources/open-jev/jev/case_reasoning.py": {
+      "bytes": 19085,
+      "sha256": "4aa15762bcdbad3c355c13e1ed9a1d512cefecfdf856238d1d33f44d6fa3761a"
+    },
+    "sources/open-jev/jev/data.py": {
+      "bytes": 26008,
+      "sha256": "97c1764a5090f60476397baf889a864359e0d59b48d99ddf3b34335d3e1b138e"
+    },
+    "sources/open-jev/jev/metrics.py": {
+      "bytes": 10161,
+      "sha256": "cb460c78b877a24708a0a8f8ca6b51f9602491f6ea24cd14e9a828c03d92f78b"
+    }
+  },
+  "note": "This manifest excludes itself; it records integrity, not authenticity.",
+  "schema_version": 1,
+  "scope": "Public proposal attachment; private Judge data and seed excluded"
+}
