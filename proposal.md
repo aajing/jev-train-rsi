@@ -1,4 +1,4 @@
-# Fixed Budget Synthetic Data and Training Optimization for Qwen Decision Reasoning
+# jev-train-rsi
 
 | Section | Field | Proposal |
 | --- | --- | --- |

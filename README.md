@@ -1,4 +1,4 @@
-# Qwen 合成数据决策任务提案
+# jev-train-rsi
 
 本包将“小型 Qwen 基座＋合成数据＋训练优化”整理成 OpenRSI 提案。学生为 Qwen3-4B-Base，教师为官方 Qwen3.8-27B，在单 H100 上分时运行。任务直接生成答案，可选推理过程，最终标签由七类固定程序规则验证。
 
@@ -10,9 +10,9 @@
 - [SUBMISSION.md](SUBMISSION.md)：标题、公开附件范围、提交路径与贡献者资料。
 - [DATA_SPEC.md](DATA_SPEC.md)：中文数据、修改范围、分层配额和计费合同。
 - [RUNBOOK.md](RUNBOOK.md)：CPU 检查与后续模型运行集成边界。
-- `dist/qwen-rsi-submission.zip`：可公开技术附件，排除隐藏题及私有 seed。
+- `dist/jev-train-rsi-submission.zip`：可公开技术附件，排除隐藏题及私有 seed。
 
-贡献者资料已填写为 Jing Qiu、ajing@autotrust.ai；相关项目证据采用贡献者指定的 AutoTrust GitHub 和 Hugging Face 公开链接。当前没有向 GitHub 发布内容。
+贡献者资料已填写为 Jing Qiu、ajing@autotrust.ai；相关项目证据采用贡献者指定的 AutoTrust GitHub 和 Hugging Face 公开链接。公开仓库：`https://github.com/aajing/jev-train-rsi`；官方提案：https://github.com/OpenRSI-Foundation/OpenRSI-Index/discussions/148。
 
 ## 已完成的优化
 

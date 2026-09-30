@@ -5,20 +5,20 @@
       "sha256": "2722349d4e158199ff2f2ebfb7dc7c3050b142877d6be681c433e321a16ed1a1"
     },
     "DATA_SPEC.md": {
-      "bytes": 23907,
-      "sha256": "6de245b0dbbff5430ffcf82e74ff9f7ca6e5f3c6e0ca2894b3fa4c763c5d8819"
+      "bytes": 23904,
+      "sha256": "915f6af9e337c74240a14228172141aa7755fc5b3b482fb20ee109fb3327de32"
     },
     "README.md": {
-      "bytes": 2942,
-      "sha256": "c92cd2456e7f8e71f037c3bc5284d579290f10ccde0e7f9811ce250eb11c0e5a"
+      "bytes": 3031,
+      "sha256": "e043c15e87551382a0040e077c43f974ceccfdc3851b50f10b2e3e777076e6a8"
     },
     "RUNBOOK.md": {
-      "bytes": 4273,
-      "sha256": "fbeaad322c6e2e18943636ac3d0e6c66b58998c91e061858d64ddb4de6ae6d0a"
+      "bytes": 4289,
+      "sha256": "1d7d5d30b24e885a58c3eedefc7afad2be50294959a965462ffa9719778165a7"
     },
     "SUBMISSION.md": {
-      "bytes": 3480,
-      "sha256": "b620690896d3728c30031c4f1292e75a1852fb1f7a4e03758c9595ba2a9eda0c"
+      "bytes": 3573,
+      "sha256": "4644f51d068811ae5a19e8abf4cba4561c8a4f5223731542bbd0110c05964841"
     },
     "configs/baseline.json": {
       "bytes": 9000,
@@ -73,8 +73,8 @@
       "sha256": "14b43d013f4b6b24a85448ca03f7e9294b74d05221da22ab2a47d0088082765b"
     },
     "proposal.md": {
-      "bytes": 25043,
-      "sha256": "e0d409367363ffe6afc32266342378afe362aa9aae75afb8f13c9b6c3f52d51d"
+      "bytes": 24975,
+      "sha256": "83f3e0e8788b140369835ced5e0b7ef76f22ba242fa678954b49b24c2cacfdb2"
     },
     "scripts/answer_protocol.py": {
       "bytes": 10991,
@@ -97,8 +97,8 @@
       "sha256": "bce77f06091e0ad11bd5e6727b178e64295413561af87a14bf83fff01769e441"
     },
     "scripts/package_submission.py": {
-      "bytes": 3108,
-      "sha256": "17a6a22292ad5f646f193830c19658beddda5abba18b9e6c11f0b5ab662c872f"
+      "bytes": 3149,
+      "sha256": "a333e09c7fa4c1efed936ebf7613d625e87f3cd59e7e95d3839aff741c63929b"
     },
     "scripts/test_answer_protocol.py": {
       "bytes": 5977,
@@ -142,6 +142,7 @@
     }
   },
   "note": "This manifest excludes itself; it records integrity, not authenticity.",
+  "project": "jev-train-rsi",
   "schema_version": 1,
   "scope": "Public proposal attachment; private Judge data and seed excluded"
 }

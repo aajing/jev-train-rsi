@@ -1,11 +1,11 @@
-# OpenRSI 提交说明
+# jev-train-rsi 提交说明
 
 提交正文是本目录的 [proposal.md](proposal.md)。它使用官方英文单表模板，保留全部 28 个字段及顺序，技术选择已经写入正文；中文解释和实现证据放在附件中。
 
 建议 Discussion 标题：
 
 ```text
-Fixed Budget Synthetic Data and Training Optimization for Qwen Decision Reasoning
+jev-train-rsi
 ```
 
 ## 贡献者资料
@@ -23,7 +23,7 @@ Fixed Budget Synthetic Data and Training Optimization for Qwen Decision Reasonin
 ## 提交内容
 
 1. 正文：使用完整的 `proposal.md`，保留单表结构。
-2. 技术附件：`dist/qwen-rsi-submission.zip`，包含正文、中文规范、配置、公开数据、B1 参考语料、CPU 代码及审计结果。
+2. 技术附件：`dist/jev-train-rsi-submission.zip`，包含正文、中文规范、配置、公开数据、B1 参考语料、CPU 代码及审计结果。
 3. 私有出题材料：`data/private/` 留在本地；在后续官方私有任务构建环节交付，不随公开 Discussion 或附件发布。
 
 公开附件不包含隐藏测试题、私有 seed、模型权重或凭据。附件内的 Judge manifest 仅公开聚合设计和文件承诺，不包含逐题指纹。B1 语料虽然可以公开审核，但正式研究时仍需在 Work 重建计费或继承可信构建成本。
@@ -32,7 +32,7 @@ Fixed Budget Synthetic Data and Training Optimization for Qwen Decision Reasonin
 
 在官方 [OpenRSI-Index 仓库](https://github.com/OpenRSI-Foundation/OpenRSI-Index) 的原生 Codex 或 Claude Code 会话中，使用 `proposal-agent` 提交最终正文，并保留该会话处理反馈。官方工具负责创建和更新 Task Ideas Discussion。具体步骤以[贡献页面](https://index.openrsi.foundation/contribute)及[官方提交工作流](https://github.com/OpenRSI-Foundation/OpenRSI-Index/blob/main/.agents/skills/proposal-agent/references/discussion-lifecycle.md)为准。
 
-本目录仅完成材料准备，没有发布 Discussion、运行 GPU 训练或创建云端资源。修改正文后，在根目录运行 `python3 scripts/package_submission.py` 重新生成公开附件及 SHA256 校验文件，避免两份版本不一致。
+本题已发布至官方 Discussion #148（https://github.com/OpenRSI-Foundation/OpenRSI-Index/discussions/148）；公开仓库为 `https://github.com/aajing/jev-train-rsi`。本次仅提交题目提案，未运行 GPU 训练或创建云端资源。修改正文后，在根目录运行 `python3 scripts/package_submission.py` 重新生成公开附件及 SHA256 校验文件，避免两份版本不一致。
 
 ## 审核者阅读顺序
 

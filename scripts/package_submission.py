@@ -42,6 +42,7 @@ def main():
         entries[name] = path.read_bytes()
     manifest = {
         "schema_version": 1,
+        "project": "jev-train-rsi",
         "scope": "Public proposal attachment; private Judge data and seed excluded",
         "files": {name: {"bytes": len(raw), "sha256": hashlib.sha256(raw).hexdigest()}
                   for name, raw in sorted(entries.items())},
@@ -49,7 +50,7 @@ def main():
     }
     entries["PUBLIC_PACKAGE_MANIFEST.json"] = (
         json.dumps(manifest, indent=2, sort_keys=True) + "\n").encode()
-    target = ROOT / "dist" / "qwen-rsi-submission.zip"
+    target = ROOT / "dist" / "jev-train-rsi-submission.zip"
     target.parent.mkdir(exist_ok=True)
     with zipfile.ZipFile(target, "w", compression=zipfile.ZIP_DEFLATED) as archive:
         for name, raw in sorted(entries.items()):
