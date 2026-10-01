@@ -1,0 +1,20 @@
+{
+  "distribution": "Public, unencrypted construction assets, explicitly authorized by the contributor",
+  "encryption": "none",
+  "evaluation_record_count": 2800,
+  "files": {
+    "data/private/generator_seed.json": {
+      "bytes": 111,
+      "purpose": "Original generator seed and legacy authoring metadata",
+      "sha256": "c036fc606ab79da44960c381abde28855a679311f4ea261b9a68f36a44cf3ef1"
+    },
+    "data/private/judge.jsonl": {
+      "bytes": 1830116,
+      "purpose": "Frozen 2,800-state Judge dataset including gold labels",
+      "sha256": "ac2014403e4fb45a1899d789c66b3dc4ed7ce755714251183c68d7c3b67af4c2"
+    }
+  },
+  "runtime_boundary": "Task construction downloads these assets; exclude them, this delivery directory, archives and repository history from Work; inject evaluation records only into Judge-owned tests. Public availability is acknowledged and confidentiality is not claimed.",
+  "schema_version": 1,
+  "task": "jev-train-rsi"
+}

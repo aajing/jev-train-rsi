@@ -1,24 +1,33 @@
 {
+  "evaluation_asset_distribution": "Public, unencrypted, explicitly authorized by the contributor; exclude from Work at runtime",
   "files": {
     ".gitignore": {
       "bytes": 33,
       "sha256": "2722349d4e158199ff2f2ebfb7dc7c3050b142877d6be681c433e321a16ed1a1"
     },
     "DATA_SPEC.md": {
-      "bytes": 23904,
-      "sha256": "915f6af9e337c74240a14228172141aa7755fc5b3b482fb20ee109fb3327de32"
+      "bytes": 25245,
+      "sha256": "b7ea341ac66f91e88af8bef867a5d91c3815d0140e24416c4a558c2c36e44b20"
+    },
+    "EVALUATION_ASSETS.md": {
+      "bytes": 3065,
+      "sha256": "a31554a778cc3a5bf549c3b54f603d136f80d353455b041b811afd2a14bba802"
+    },
+    "EVALUATION_ASSETS_MANIFEST.json": {
+      "bytes": 957,
+      "sha256": "0385ad5e8342ab9574c37a4e9770f8349a9fea8fa4d8b2463934716fadcd9ff9"
     },
     "README.md": {
-      "bytes": 3031,
-      "sha256": "e043c15e87551382a0040e077c43f974ceccfdc3851b50f10b2e3e777076e6a8"
+      "bytes": 4245,
+      "sha256": "62a900aa76d5e0484e470a8f9141297aec0dd4051f22599966eaebadb5e7aecb"
     },
     "RUNBOOK.md": {
-      "bytes": 4478,
-      "sha256": "73b00e08aa01303f0e57387cb976322f239d72fc13f38dd2df88adfa8ed5de4d"
+      "bytes": 5789,
+      "sha256": "bb878423345420fd4f18b5e4fd63baf54b1b6aa8d8908594969aba58775e6eeb"
     },
     "SUBMISSION.md": {
-      "bytes": 3573,
-      "sha256": "4644f51d068811ae5a19e8abf4cba4561c8a4f5223731542bbd0110c05964841"
+      "bytes": 4512,
+      "sha256": "ebea33496723de03e2cb2d8e175cf12de4af18b7b8b7d4df722f87a6964a39d0"
     },
     "configs/baseline.json": {
       "bytes": 9000,
@@ -43,6 +52,14 @@
     "data/baseline/train.jsonl": {
       "bytes": 12724528,
       "sha256": "e3dcaf05a4bc8ae0e2f67f9af62185be63b31ba762699e4083123eff5e575ffb"
+    },
+    "data/private/generator_seed.json": {
+      "bytes": 111,
+      "sha256": "c036fc606ab79da44960c381abde28855a679311f4ea261b9a68f36a44cf3ef1"
+    },
+    "data/private/judge.jsonl": {
+      "bytes": 1830116,
+      "sha256": "ac2014403e4fb45a1899d789c66b3dc4ed7ce755714251183c68d7c3b67af4c2"
     },
     "data/public/development.jsonl": {
       "bytes": 132645,
@@ -73,8 +90,8 @@
       "sha256": "14b43d013f4b6b24a85448ca03f7e9294b74d05221da22ab2a47d0088082765b"
     },
     "proposal.md": {
-      "bytes": 28383,
-      "sha256": "522c3a6b903ead72dc8c888dcd297482af7adce25feea6975e64cdf2207a3d64"
+      "bytes": 30025,
+      "sha256": "8d5867753a9530441496553dd01879fc3bf02c6ce2044bbb7afd20019e0ea255"
     },
     "scripts/answer_protocol.py": {
       "bytes": 10991,
@@ -97,8 +114,8 @@
       "sha256": "bce77f06091e0ad11bd5e6727b178e64295413561af87a14bf83fff01769e441"
     },
     "scripts/package_submission.py": {
-      "bytes": 3149,
-      "sha256": "a333e09c7fa4c1efed936ebf7613d625e87f3cd59e7e95d3839aff741c63929b"
+      "bytes": 4606,
+      "sha256": "88a9a6290ce7a5d9af81123f860ca663a74a0f49576cbe5f6a8e68513df16481"
     },
     "scripts/test_answer_protocol.py": {
       "bytes": 5977,
@@ -144,5 +161,5 @@
   "note": "This manifest excludes itself; it records integrity, not authenticity.",
   "project": "jev-train-rsi",
   "schema_version": 1,
-  "scope": "Public proposal attachment; private Judge data and seed excluded"
+  "scope": "Public proposal attachment including the original evaluation data and seed"
 }

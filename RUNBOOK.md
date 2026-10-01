@@ -21,19 +21,21 @@ e3dcaf05a4bc8ae0e2f67f9af62185be63b31ba762699e4083123eff5e575ffb
 
 正式 B1 必须重建并计费，或继承可信首次构建成本。这里验证的是配方和语料重放，不是模型权重重放。
 
-## 出题方本地私有检查
+## Public evaluation assets: construction and review reproduction
 
-只有持有原私有 seed 的出题方才能逐字重建本次 Judge：
+In a task-construction or review environment, follow [evaluation asset delivery](EVALUATION_ASSETS.md) to obtain the complete source attachment or dedicated unencrypted evaluation ZIP, and install the original frozen records and construction seed under `data/private/` before checking this Judge. This is not part of the research agent's Work workflow:
 
 ```bash
 python3 scripts/materialize_data.py --check
 ```
 
-公开 ZIP 故意不包含 `data/private/generator_seed.json`，因此不能用它复现这份隐藏测试。缺少 seed 时运行非 `--check` 模式会创建另一份测试集和新的 manifest，不能将其冒充为本次冻结版本。Judge 一次性构建允许最多扫描 5000000 个场景索引，使用跳过已满组的优化；这与解题 Agent 的训练合成预算无关。
+The complete source attachment and dedicated evaluation ZIP both contain the original `data/private/generator_seed.json` and `data/private/judge.jsonl`; raw downloads are also available under `evaluation-assets/data/private/`. First compare file hashes with the delivery manifest. Do not generate a replacement seed and present it as the frozen version. Running without `--check` when the seed is missing creates a different test set and manifest. One-time Judge construction may scan up to 5,000,000 scene indices, skipping completed cells; this is separate from the research agent's synthesis budget.
+
+The records and seed are public, so public secrecy is no longer claimed. The original seed's access label, the original manifest's private_policy and earlier audit publication status remain historical metadata; [evaluation asset delivery](EVALUATION_ASSETS.md) supersedes their distribution restrictions. Provision Work from an allowlist excluding `evaluation-assets/`, `data/private/`, complete attachments under `dist/`, and bundled `.git/` history, and run offline. Research agents must not retrieve, reconstruct, memorize or train on held-out records, or probe the construction seed. Do not use the complete public repository or attachment as Work.
 
 ## 正式评分链路
 
-Harbor Judge 需要自行加载提交的学生 checkpoint，并对固定隐藏输入生成响应；候选不能直接交答案文件代替模型。可信启动器将响应写入 Judge 自有临时目录，然后调用：
+Harbor Judge must load the submitted student checkpoint and generate responses to the fixed runtime-held-out inputs itself. Candidate answer files cannot replace model evaluation. The task-owned launcher writes responses to a Judge-owned temporary directory, then invokes:
 
 ```bash
 python3 scripts/judge_gate.py \
@@ -74,6 +76,6 @@ receipt ID 是外层映射键。思考 token 计在 output 中，不再重复加
 - 实现合法候选状态准入、训练配置适配、标准 checkpoint/adapter 加载和学生生成。
 - 接入可信 receipt 收集、缓存来源核验、在线预算停止与保存余量。
 - 在单 H100 80GB 上验证教师分时加载、显存、训练吞吐和 2800 题评测耗时。
-- 将 Judge 数据与可信启动器放入正确的 task-owned 私有路径，保留共享快照环境的已知限制。
+- Install publicly obtained evaluation assets and the task-owned launcher in runtime Judge-only paths, excluded from Work; retain the stated limits from public prior exposure and shared snapshots.
 
 这些是后续 Harbor 集成和运行验证工作。当前没有下载模型权重、调用教师或开展 GPU 训练。

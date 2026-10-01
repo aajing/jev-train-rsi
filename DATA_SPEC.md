@@ -119,13 +119,15 @@ Final answer: 14
 - 训练：去重后的官方 train 种子，加上符合 ID 合同的新合成数据。
 - 开发：官方 validation 与 calibration 的主问题转换后合并、规范化去重；可看逐题结果，用于选择和诊断，不可做梯度训练。
 - 公开参考：官方 test 和 OOD 主问题的直接作答版本；排除出训练。文件及官方种子原本公开，不能宣称其保密。
-- 正式 Judge：用同一固定源码、独立私有种子生成，在实验开始前按固定配额冻结 2800 个规范化唯一场景，每领域 ID 200、结构变化 200。标签由原生 oracle 得出。只将私有文件注入 Judge。
+- Formal Judge: generated with the same fixed source and an independent construction seed; 2,800 unique normalized scenes are frozen before experiments, with 200 ID and 200 shifted scenes per domain. Native oracles supply the labels. The original frozen records and seed are now publicly delivered but enter Judge only at runtime.
 - 每个 Judge 场景生成一次答案，共 2800 次自回归评测。B0、B1 与所有候选使用相同输入、解码和答案解析规则。模型评测包装器尚未实现。
-- 所有公开数据之间，以及公开数据与 Judge 之间，检查去除 record ID、规范化随机场景名后的精确输入重复，key 只包含 kind/state/question，不包含 answer；这不是语义去重或彻底污染排除证明。
+- Check exact input overlap between the original training, development and reference splits, and between those splits and Judge, after removing record IDs and normalizing generated scene names. The key contains only kind/state/question, never answer. This is neither semantic deduplication nor proof of complete contamination exclusion. Subsequent public delivery of evaluation records does not change these splits.
 - 为避免后续大量合成时偶然撞到测试题，对上述规范化输入 SHA256 定义 `bucket = int(hash[:8], 16) % 10`。新训练状态只接受 bucket 0 至 7；正式 Judge 只取 bucket 8 至 9。固定的 1800 条训练种子是唯一例外，但它们已全部从 Judge 排除。新状态仍须排除开发/公开参考的精确重复。这个公开分区规则用于隔离精确输入，不宣称能阻止任意测试重建。
 - 同一场景及其输入改写或增强版本必须保留共同 lineage，不能借新 ID 重置样本数或成本。
 
-私有文件属于出题材料，不得提交给解题 Agent 的 Work 环境，也不应附到公开 GitHub Discussion。`data/private/` 中的种子和数据需随最终任务进入私有仓库的 Judge 资产；公开 manifest 只给数量和文件承诺，不给逐题指纹。
+Frozen evaluation records and the original construction seed are publicly delivered for task construction and review. See [evaluation asset delivery](EVALUATION_ASSETS.md) for the complete source attachment, dedicated unencrypted evaluation ZIP and raw downloads. `evaluation-assets/data/private/` is the public delivery location; `data/private/` inside the ZIP is the installation layout. The legacy directory name does not imply secrecy in a public repository. Private-distribution and unpublished-seed statements in the original seed, manifests and audits remain historical metadata; the current delivery document supersedes their distribution restrictions.
+
+Provision Work from an explicit allowlist excluding `evaluation-assets/`, `data/private/`, complete attachments under `dist/`, and bundled `.git/` history. Evaluation assets enter Judge only at runtime. Research runs remain offline and must not access, download, reconstruct, memorize or train on held-out records, or probe their construction seed. Public delivery increases prior-contamination and memorization risk; global secrecy and prior-unseen-data guarantees are not claimed. Judge feedback still returns only the specified aggregates, never per-example responses or correctness.
 
 ## 评测分层配额
 
@@ -141,7 +143,7 @@ Final answer: 14
 | 列表算法 | 结果存在 100，不存在 100 |
 | 证据整合 | conflict 40，not_stated 40；queued/active/paused/closed 各 30 |
 
-按固定生成顺序接受每个分层的前若干个合法、未重复、位于 Judge 分区的场景，直到全部配额满足；不足时报错，禁止静默降低配额、重复抽样或修改比例。源代码和私有 seed 不变。为寻找罕见边界情况增加出题阶段生成上限，不占解题 Agent 的 10 万次合成额度。每次正式实验前冻结 manifest；这次更新发生在任何模型实验之前。
+按固定生成顺序接受每个分层的前若干个合法、未重复、位于 Judge 分区的场景，直到全部配额满足；不足时报错，禁止静默降低配额、重复抽样或修改比例。The generation algorithm, original construction seed value and frozen evaluation-record bytes remain unchanged.为寻找罕见边界情况增加出题阶段生成上限，不占解题 Agent 的 10 万次合成额度。每次正式实验前冻结 manifest；这次更新发生在任何模型实验之前。
 
 该分数代表这一固定分层任务上的准确率，不应解释成上游自然题目频率下的准确率。这样的配额用于减少高频默认答案的收益，并确保边界情况有足够覆盖。
 
@@ -211,7 +213,7 @@ score = 100 × 0.5 × (七领域 ID 准确率平均 + 七领域结构变化准�
 
 **满分为 100 分，必须同时满足：**
 
-1. 2800 道隐藏测试全部答对，14 个“领域 × 条件”单元准确率均为 100%。
+1. All 2,800 runtime-held-out evaluation records are answered correctly, with 100% accuracy in each of the 14 domain-by-condition cells.
 2. 每道题有格式有效且类型正确的最终答案，整个评测完整结束。
 3. 候选遵守可修改范围、数据使用规则与计算预算。
 

@@ -23,10 +23,10 @@ jev-train-rsi
 ## 提交内容
 
 1. 正文：使用完整的 `proposal.md`，保留单表结构。
-2. 技术附件：`dist/jev-train-rsi-submission.zip`，包含正文、中文规范、配置、公开数据、B1 参考语料、CPU 代码及审计结果。
-3. 私有出题材料：`data/private/` 留在本地；在后续官方私有任务构建环节交付，不随公开 Discussion 或附件发布。
+2. Complete technical attachment: `dist/jev-train-rsi-submission.zip`, containing the proposal, specifications, configuration, training/development data, B1 reference corpus, CPU code, audits, original frozen evaluation records and construction seed.
+3. Evaluation assets are also publicly delivered in unencrypted `dist/jev-train-rsi-evaluation-assets.zip` and as raw files under `evaluation-assets/data/private/`. See [evaluation asset delivery](EVALUATION_ASSETS.md) for downloads, hashes and installation. Both the dedicated ZIP and complete attachment use the `data/private/` installation layout and include `EVALUATION_ASSETS_MANIFEST.json`.
 
-公开附件不包含隐藏测试题、私有 seed、模型权重或凭据。附件内的 Judge manifest 仅公开聚合设计和文件承诺，不包含逐题指纹。B1 语料虽然可以公开审核，但正式研究时仍需在 Work 重建计费或继承可信构建成本。
+Public attachments include all original frozen evaluation records, labels and the construction seed, but no model weights or credentials. Public delivery supports task construction and review. Provision Work from an allowlist excluding `evaluation-assets/`, `data/private/`, complete attachments under `dist/`, and bundled `.git/` history. Research runs remain offline and must not download, reconstruct, memorize or train on evaluation records, or probe the seed; evaluation assets enter Judge only at runtime. Public secrecy and absence of prior contamination are not claimed. Private-distribution labels in the original seed, manifests and audits are retained historical metadata; the current delivery document supersedes their distribution restrictions. Formal use of the B1 corpus still requires charged reconstruction in Work or inherited verified construction costs.
 
 ## 官方提交路径
 
